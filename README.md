@@ -19,7 +19,7 @@ Installation
 
 Usage (Short)
 --------------
-<code>reggit.rb <path-to-PHPstorm-project-root></code>
+<blockquote>reggit.rb path-to-PHPstorm-project-root </blockquote>
 
 (you can ease things up by changing into your project root and just writing reggit.rb)
 
