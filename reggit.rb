@@ -22,7 +22,7 @@ Find.find(@searchpath) do |path|
     if folder == ".git"
       git_root = String.new(path).split("/.git")
       git_root = git_root[0]
-      Git_roots.push(git_root)
+      Git_roots.push(git_root.sub! @searchpath,'$PROJECT_DIR$')
     end
   end
 end
@@ -32,7 +32,7 @@ xmldoc = Document.new(xmlfile)
 xmlfile.close
 
 #thats were all the git-folder mappings are stored in the XML
-xml_git_root = xmldoc.elements["/project/component"]
+xml_git_root = xmldoc.elements["/project/component[@name='VcsDirectoryMappings']"]
 
 # TODO: Maybe rather compare with the current Git_roots list and exclude existent, rather then delting all existent
 # TODO: otherwise, maybe rather delete the component node and recreate it
